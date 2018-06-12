@@ -43,6 +43,8 @@ function devAdminRequest(uri, formData, options) {
 
   if(uri)
     opts.uri = uri;
+  else
+    opts.uri = '';
 
   if(formData)
     opts.formData = formData;
