@@ -2,10 +2,11 @@ var request = require('request');
 var fs = require('fs');
 var DEV_ADMIN_AUTH = process.env.DEV_ADMIN_AUTH;
 var CRON_KEY = process.env.CRON_KEY;
+var BASE_URL = process.env.BASE_URL;
 
-//request.debug = true;
-var optionsOrig = {
-  baseUrl: 'http://dev-rblbank.devportal.apigee.io/smartdocs/apis/models',
+request.debug = true;
+var optionsDefault = {
+  baseUrl: BASE_URL + '/smartdocs/apis/models',
   method: 'POST',
   headers: {
     'Content-Type': 'multipart/form-data',
@@ -24,10 +25,18 @@ var openapiformData = {
 };
 
 var cronDataOptions = {
-  url: 'http://dev-rblbank.devportal.apigee.io/cron.php?cron_key=' + CRON_KEY,
+  url: BASE_URL + '/cron.php?cron_key=' + CRON_KEY,
   method: 'GET'
 }
 
+var deleteModelOptions = {
+  baseUrl: BASE_URL + '/smartdocs/apis/models',
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'multipart/form-data',
+    'Authorization': 'Basic ' + DEV_ADMIN_AUTH
+  }
+}
 /**
 devAdminRequest - Request to SmartDocs extend service
 @param formData - Form data to Post
@@ -36,21 +45,23 @@ devAdminRequest - Request to SmartDocs extend service
 function devAdminRequest(uri, formData, options) {
   var opts;
 
-  if(options)
+  if(options) {
     opts = options;
-  else
-    opts = optionsOrig;
+  } else {
+    console.log('using default options')
+    opts = optionsDefault;
+  }
 
-  if(uri)
+  if(uri) {
     opts.uri = uri;
-  else
-    opts.uri = '';
+  }
 
-  if(formData)
+  if(formData) {
     opts.formData = formData;
+  }
 
   return new Promise(function(resolve, reject){
-    request(options, function(error, response, body) {
+    request(opts, function(error, response, body) {
       if (error) {
         reject(error);
       } else {
@@ -62,12 +73,15 @@ function devAdminRequest(uri, formData, options) {
 }
 
 function publish() {
-  devAdminRequest('/', newModelformData, null)
+  devAdminRequest('/geolocation-ts', null, deleteModelOptions)
+    .then(function(){
+      return devAdminRequest('/', newModelformData, null);
+    })
     .then(function(){
       return devAdminRequest('/geolocation-ts/import', openapiformData, null);
     })
     .then(function(){
-      return devAdminRequest('/geolocation-ts/render', null, null);
+      return devAdminRequest('/geolocation-ts/render', {}, null);
     })
     .then(function(){
       return devAdminRequest(null, null, cronDataOptions);
