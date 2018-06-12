@@ -1,9 +1,10 @@
 var request = require('request');
 var fs = require('fs');
 var DEV_ADMIN_AUTH = process.env.DEV_ADMIN_AUTH;
+var CRON_KEY = process.env.CRON_KEY;
 
 //request.debug = true;
-var options = {
+var optionsOrig = {
   baseUrl: 'http://dev-rblbank.devportal.apigee.io/smartdocs/apis/models',
   method: 'POST',
   headers: {
@@ -22,16 +23,30 @@ var openapiformData = {
   api_definition: fs.createReadStream(__dirname + '/openapi.yaml'),
 };
 
+var cronDataOptions = {
+  url: 'http://dev-rblbank.devportal.apigee.io/cron.php?cron_key=' + CRON_KEY,
+  method: 'GET'
+}
 
 /**
 devAdminRequest - Request to SmartDocs extend service
 @param formData - Form data to Post
 **/
 
-function devAdminRequest(uri, formData) {
-  var opts = options;
-  opts.uri = uri;
-  opts.formData = formData;
+function devAdminRequest(uri, formData, options) {
+  var opts;
+
+  if(options)
+    opts = options;
+  else
+    opts = optionsOrig;
+
+  if(uri)
+    opts.uri = uri;
+
+  if(formData)
+    opts.formData = formData;
+
   return new Promise(function(resolve, reject){
     request(options, function(error, response, body) {
       if (error) {
@@ -45,12 +60,15 @@ function devAdminRequest(uri, formData) {
 }
 
 function publish() {
-  devAdminRequest('/', newModelformData)
+  devAdminRequest('/', newModelformData, null)
     .then(function(){
-      return devAdminRequest('/geolocation-ts/import', openapiformData);
+      return devAdminRequest('/geolocation-ts/import', openapiformData, null);
     })
     .then(function(){
-      return devAdminRequest('/geolocation-ts/render', {});
+      return devAdminRequest('/geolocation-ts/render', null, null);
+    })
+    .then(function(){
+      return devAdminRequest(null, null, cronDataOptions);
     })
     .catch(function(error){
       console.log(error);
