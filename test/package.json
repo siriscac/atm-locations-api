@@ -1,0 +1,9 @@
+{
+  "name": "geolocation-test",
+  "version": "1.0.0",
+  "description": "Functional tests for Geolocation API",
+  "dependencies": {
+    "apickli": "latest",
+    "cucumber": "latest"
+  }
+}
