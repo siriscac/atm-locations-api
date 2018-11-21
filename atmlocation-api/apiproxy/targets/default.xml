@@ -13,6 +13,6 @@
     <Flows/>
     <HTTPTargetConnection>
         <Properties/>
-        <URL>https://www.googleapis.com/geolocation</URL>
+        <URL>https://www.googleapis.com</URL>
     </HTTPTargetConnection>
 </TargetEndpoint>

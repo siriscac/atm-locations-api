@@ -11,7 +11,7 @@
         <Response/>
     </PostFlow>
     <Flows>
-        <Flow name="Location API">
+        <Flow name="ATM Locations API">
             <Description/>
             <Request/>
             <Response/>
