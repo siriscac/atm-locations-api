@@ -15,9 +15,9 @@ var optionsDefault = {
 };
 
 var newModelformData = {
-  name: "geolocation-ts",
-  display_name:"Geo Location API (T)",
-  description: "API to Get Location data from Google"
+  name: "atmlocation-ts",
+  display_name:"ATM Locations API (T)",
+  description: "API to Get ATM Location data"
 };
 
 var openapiformData = {
@@ -73,15 +73,15 @@ function devAdminRequest(uri, formData, options) {
 }
 
 function publish() {
-  devAdminRequest('/geolocation-ts', null, deleteModelOptions)
+  devAdminRequest('/atmlocation-ts', null, deleteModelOptions)
     .then(function(){
       return devAdminRequest('/', newModelformData, null);
     })
     .then(function(){
-      return devAdminRequest('/geolocation-ts/import', openapiformData, null);
+      return devAdminRequest('/atmlocation-ts/import', openapiformData, null);
     })
     .then(function(){
-      return devAdminRequest('/geolocation-ts/render', {}, null);
+      return devAdminRequest('/atmlocation-ts/render', {}, null);
     })
     .then(function(){
       return devAdminRequest(null, null, cronDataOptions);

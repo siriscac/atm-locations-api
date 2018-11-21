@@ -1,3 +1,3 @@
-# geolocation-api-demo
+# atmlocation-api-demo
 test
 api

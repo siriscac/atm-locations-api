@@ -1,10 +1,10 @@
 {
   "swagger": "2.0",
-  "basePath": "/geolocation",
+  "basePath": "/atms",
   "info": {
-    "title": "Google Maps APIs",
+    "title": "ATM Locations APIs",
     "version": "2018.1.16",
-    "description": "Google Maps APIs"
+    "description": "ATM Locations APIs"
   },
   "host": "www.googleapis.com",
   "schemes": [
@@ -19,8 +19,8 @@
   "paths": {
     "/v1/geolocate": {
       "post": {
-        "description": "Geolocation API returns a location and accuracy radius based on information about cell towers and WiFi nodes that the mobile client can detect. This document describes the protocol used to send this data to the server and to return a response to the client.",
-        "operationId": "Geolocation API",
+        "description": "ATM Locations API returns a location and accuracy radius based on information about cell towers and WiFi nodes that the mobile client can detect. This document describes the protocol used to send this data to the server and to return a response to the client.",
+        "operationId": "ATM Locations API",
         "parameters": [
           {
             "description": "API key used for authentication.",
@@ -252,17 +252,17 @@
           "properties": {
             "lat": {
               "type": "number",
-              "description": "The latitude of the retrieved geolocation."
+              "description": "The latitude of the retrieved ATM."
             },
             "lng": {
               "type": "number",
-              "description": "The longitude of the retrieved geolocation."
+              "description": "The longitude of the retrieved ATM."
             }
           }
         },
         "accuracy": {
           "type": "integer",
-          "description": "The accuracy of the retrieved geolocation measured in meters."
+          "description": "The accuracy of the retrieved ATM measured in meters."
         }
       }
     }
