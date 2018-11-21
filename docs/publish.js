@@ -17,7 +17,7 @@ var optionsDefault = {
 var newModelformData = {
   name: "atmlocation-ts",
   display_name:"ATM Locations API (T)",
-  description: "API to Get ATM Location data"
+  description: "API to get ATM Location data"
 };
 
 var openapiformData = {
