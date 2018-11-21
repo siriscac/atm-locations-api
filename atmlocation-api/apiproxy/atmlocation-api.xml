@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="1" name="ATM-Locations-API">
+<APIProxy revision="2" name="atmlocation-api">
     <Basepaths>/atms</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1528768028138</CreatedAt>
-    <CreatedBy>defaultUser</CreatedBy>
+    <CreatedAt>1542801628580</CreatedAt>
+    <CreatedBy>mviswanathan@google.com</CreatedBy>
     <Description>ATM Locations API</Description>
     <DisplayName>ATM-Locations-API</DisplayName>
-    <LastModifiedAt>1528768775199</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:ae0d1295098eb35f62a767d4f9ed0eccf5b7c86ce17a140a466e1052de1e9eec452a278b136355f9c57e5115e7869e5e2ac122dc95e7f2b49578e64367c1dd78</ManifestVersion>
+    <LastModifiedAt>1542801628580</LastModifiedAt>
+    <LastModifiedBy>mviswanathan@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:dbe86d429caf101f91a4366cac1341bfe26ed946dd431a08d38932952dc533279756d2c38f88fe115bd94d836f3d68ce101ca1109dabcf716ad2b58e50f902fa</ManifestVersion>
     <Policies/>
     <ProxyEndpoints>
         <ProxyEndpoint>default</ProxyEndpoint>

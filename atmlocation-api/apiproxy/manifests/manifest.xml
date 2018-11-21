@@ -2,7 +2,7 @@
 <Manifest name="manifest">
     <Policies/>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:eb7811644fd7843de9eccfa3b752c6cf6e6d53564404b06a1b8e5b0cebaa32cdd49ac1b4d4544314f12ffce174d3cb45a399863160e4b170c5f955672d110b09"/>
+        <VersionInfo resourceName="default" version="SHA-512:69fcd91c5dd1d7965a9fddbe317cb2d8853f933a221671be757739fd322ba3a2abc3f7c1fbdb107a3bf2d18d836050987dd70b76d55015f3ead13b17ca507df1"/>
     </ProxyEndpoints>
     <Resources>
         <VersionInfo resourceName="openapi://association.json" version="SHA-512:34821816b4446d25f62de41a26162010651b8e392f37481dcb48e6f7aa7fc52a727d795b67108cad57d57b1d5a668c37eb9ad830abf8c35af7d1586b65643ff1"/>
