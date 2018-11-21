@@ -4,7 +4,7 @@ info:
   title: ATM Locations APIs
   version: 2018.1.16
   description: ATM Locations APIs
-host: www.googleapis.com
+host: apac-poc1.apigee.net
 schemes:
 - https
 consumes:
