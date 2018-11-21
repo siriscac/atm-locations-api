@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="1" name="ATM-Location-APIs">
+<APIProxy revision="1" name="ATM-Locations-API">
     <Basepaths>/atms</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1528768028138</CreatedAt>
     <CreatedBy>defaultUser</CreatedBy>
-    <Description>ATM Locations/Description>
+    <Description>ATM Locations API</Description>
     <DisplayName>ATM-Locations-API</DisplayName>
     <LastModifiedAt>1528768775199</LastModifiedAt>
     <LastModifiedBy>defaultUser</LastModifiedBy>
